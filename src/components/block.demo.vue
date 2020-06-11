@@ -26,12 +26,11 @@
 export default {
 	data() {
 		return {
-			hour: "09",
-			count: 9
+			hour: '09',
+			count: 9,
 		};
 	},
 	mounted() {
-		console.log("test");
 		let self = this;
 
 		setInterval(() => {
@@ -40,7 +39,7 @@ export default {
 			let hour = self.count.toString();
 
 			if (hour.length === 1) {
-				self.hour = "0" + hour;
+				self.hour = '0' + hour;
 			} else {
 				self.hour = hour;
 			}
@@ -49,10 +48,10 @@ export default {
 				self.count = 0;
 			}
 		}, 1000);
-	}
+	},
 };
 </script>
 
 <style lang="scss">
-@import "../css/block.demo";
+@import '../css/block.demo';
 </style>
