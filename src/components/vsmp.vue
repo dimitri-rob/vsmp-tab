@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import editJsonFile from 'edit-json-file';
 import json from '../../public/static/data';
 
 function updateJson() {
