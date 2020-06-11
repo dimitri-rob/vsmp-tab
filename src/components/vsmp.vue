@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import json from '../../functions/tmp/data.json';
+import json from '../../tmp/data.json';
 
 function updateJson() {
 	return fetch('/.netlify/functions/json-update').then((response) => {
