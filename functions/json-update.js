@@ -1,10 +1,7 @@
-import editJsonFile from 'edit-json-file';
+//import editJsonFile from 'edit-json-file';
 
 exports.handler = (event, context, callback) => {
-	callback(null, {
-		statusCode: 200,
-		body: 'Hello, World',
-	});
+	console.log('test');
 
 	/*
 	let file = editJsonFile('/public/static/data.json');
