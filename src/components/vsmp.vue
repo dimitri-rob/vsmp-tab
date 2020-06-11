@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import editJsonFile from 'edit-json-file';
 import json from '../../public/static/data';
 
 function updateJson() {
@@ -65,6 +66,8 @@ export default {
 		}
 	},
 	mounted() {
+		let file = editJsonFile('/public/static/data.json');
+		file.set('test', 20);
 		console.log(json);
 
 		updateJson()
