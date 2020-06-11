@@ -1,11 +1,10 @@
 import editJsonFile from 'edit-json-file';
 
 exports.handler = (event, context, callback) => {
-	return {
+	callback(null, {
 		statusCode: 200,
-
-		body: 'hello',
-	};
+		body: 'Hello, World',
+	});
 
 	/*
 	let file = editJsonFile('/public/static/data.json');
