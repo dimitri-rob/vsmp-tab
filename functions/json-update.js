@@ -1,7 +1,7 @@
 const editJsonFile = require('edit-json-file');
 
 exports.handler = function(event, context, callback) {
-	let file = editJsonFile(process.cwd() + '/src/tmp/data.json');
+	let file = editJsonFile(`${__dirname}`);
 	file.set('test', 20);
 	file.save();
 
