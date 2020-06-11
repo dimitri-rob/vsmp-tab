@@ -65,6 +65,7 @@ export default {
 		console.log(json);
 	},
 	mounted() {
+		console.log(`${__dirname}`);
 		json.test = 20;
 		console.log(json);
 
