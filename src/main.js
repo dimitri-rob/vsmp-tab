@@ -21,7 +21,6 @@ const router = new VueRouter({
 		{
 			path: '/app/',
 			components: { default: vsmp },
-			children: [{ path: ':id', component: vsmp }],
 			name: 'app',
 		},
 		{
