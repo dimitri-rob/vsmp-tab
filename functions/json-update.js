@@ -1,4 +1,4 @@
-//import editJsonFile from 'edit-json-file';
+import editJsonFile from 'edit-json-file';
 
 /*
 	let file = editJsonFile('/public/static/data.json');
