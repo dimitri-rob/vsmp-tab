@@ -2,7 +2,7 @@ const fs = require('fs');
 const editJsonFile = require('edit-json-file');
 
 exports.handler = function(event, context, callback) {
-	let file = editJsonFile('//vsmp-tab.netlify.app/static/data.json');
+	let file = editJsonFile('https://vsmp-tab.netlify.app/static/data.json');
 	file.set('test', 20);
 	file.save();
 
