@@ -6,13 +6,26 @@
 		<div>{{ imgName }}</div>
 		<div>{{ timer }}</div>
 		<div></div>
-		<img :src="'/static/frames/frame_' + imgName + '.png'" alt class="test" />
+		<img
+			:src="'/static/frames/frame_' + imgName + '.png'"
+			alt
+			class="test"
+		/>
 	</div>
 </template>
 
 <script>
-import json from "../assets/data";
-import editJsonFile from "edit-json-file";
+import json from '../assets/data';
+import editJsonFile from 'edit-json-file';
+
+function updateJson(data) {
+	return fetch('/.netlify/functions/json-update', {
+		body: JSON.stringify(data),
+		method: 'POST',
+	}).then((response) => {
+		return response.json();
+	});
+}
 
 export default {
 	data() {
@@ -21,10 +34,10 @@ export default {
 			timestamp: json.timestamp,
 			currentTime: 0,
 			timeDiff: 0,
-			imgName: "",
+			imgName: '',
 			nbrImg: json.nbrImg,
-			timeInterval: "",
-			timer: 0
+			timeInterval: '',
+			timer: 0,
 		};
 	},
 	methods: {
@@ -37,28 +50,32 @@ export default {
 		},
 		format: function() {
 			if (this.timeDiff.length === 3) {
-				this.imgName = "0" + this.timeDiff;
+				this.imgName = '0' + this.timeDiff;
 			} else if (this.timeDiff.length === 2) {
-				this.imgName = "00" + this.timeDiff;
+				this.imgName = '00' + this.timeDiff;
 			} else {
-				this.imgName = "000" + this.timeDiff;
+				this.imgName = '000' + this.timeDiff;
 			}
-		}
+		},
 	},
 	beforeMount() {
 		if (this.timestamp === undefined) {
-			this.$router.push("1591830756");
+			this.$router.push('1591830756');
 			this.getFrame();
 		} else {
 			this.getFrame();
 		}
 	},
 	mounted() {
-		let file = editJsonFile("../assets/data.json", {
-			autosave: true
+		console.log(json);
+
+		updateJson();
+
+		let file = editJsonFile('../assets/data.json', {
+			autosave: true,
 		});
 		console.log(file.get());
-		file.set("test", 20);
+		file.set('test', 20);
 		console.log(file.get());
 
 		let self = this;
@@ -72,7 +89,7 @@ export default {
 	},
 	updated() {
 		this.getFrame();
-	}
+	},
 };
 </script>
 
