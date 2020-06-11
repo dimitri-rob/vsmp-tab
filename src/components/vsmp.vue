@@ -18,9 +18,8 @@
 import json from '../assets/data';
 //import editJsonFile from 'edit-json-file';
 
-function updateJson(data) {
+function updateJson() {
 	return fetch('/.netlify/functions/json-update', {
-		body: JSON.stringify(data),
 		method: 'POST',
 	}).then((response) => {
 		return response.json();
