@@ -1,12 +1,14 @@
 import Vue from 'vue';
 import App from './App.vue';
 import VueRouter from 'vue-router';
+import MiniResetCss from 'minireset.css';
 
 import main from './components/main';
 import vsmp from './components/vsmp';
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
+Vue.use(MiniResetCss);
 
 const router = new VueRouter({
 	mode: 'history',
