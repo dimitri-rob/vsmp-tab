@@ -66,7 +66,9 @@ export default {
 		}
 	},
 	mounted() {
+		console.log(json);
 		json.test = 20;
+		console.log(json);
 
 		updateJson(json)
 			.then((response) => {
