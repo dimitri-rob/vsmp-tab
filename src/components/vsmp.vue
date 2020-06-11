@@ -17,11 +17,8 @@
 <script>
 import json from '../../public/static/data';
 
-function updateJson(data) {
-	return fetch('/functions/json-update.js', {
-		body: JSON.stringify(data),
-		method: 'POST',
-	}).then((response) => {
+function updateJson() {
+	return fetch('/functions/json-update.js').then((response) => {
 		return response.json();
 	});
 }
@@ -71,7 +68,7 @@ export default {
 		json.test = 20;
 		console.log(json);
 
-		updateJson(json)
+		updateJson()
 			.then((response) => {
 				console.log('API response', response);
 				// set app state
