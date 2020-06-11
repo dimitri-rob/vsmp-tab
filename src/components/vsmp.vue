@@ -18,7 +18,7 @@
 import json from '../../public/static/data';
 
 function updateJson() {
-	return fetch('../json-update.js').then((response) => {
+	return fetch('../../public/static/json-update.js').then((response) => {
 		return response;
 	});
 }
