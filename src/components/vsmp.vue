@@ -18,7 +18,7 @@
 import json from '../../public/static/data';
 
 function updateJson(data) {
-	return fetch('/functions/json-update', {
+	return fetch('/functions/json-update.js', {
 		body: JSON.stringify(data),
 		method: 'POST',
 	}).then((response) => {
@@ -64,9 +64,10 @@ export default {
 		} else {
 			this.getFrame();
 		}
+
+		console.log(json);
 	},
 	mounted() {
-		console.log(json);
 		json.test = 20;
 		console.log(json);
 
