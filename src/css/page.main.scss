@@ -8,28 +8,20 @@
 	justify-content: center;
 	align-items: center;
 	position: relative;
+	padding: 30px 60px 30px 30px;
+	box-sizing: border-box;
 
-	&::before {
+	&::before,
+	&::after {
 		content: '';
-		z-index: 1;
-		position: fixed;
-		top: 0px;
-		left: 0px;
-		width: 55%;
-		height: 100%;
-		background-image: url('../assets/popcorn.png');
-		background-position: left bottom;
-		background-repeat: no-repeat;
-		background-size: contain;
 	}
 
 	&::after {
-		content: '';
 		display: block;
 		position: fixed;
 		top: 0px;
 		right: 0px;
-		width: 45%;
+		width: 30px;
 		height: 100vh;
 		background: $yellow;
 		z-index: 4;
@@ -42,19 +34,24 @@
 		z-index: 10;
 	}
 
+	&__title,
+	&__subtitle {
+		text-align: center;
+	}
+
 	&__title {
-		font-size: 56rem;
+		font-size: 30rem;
 		font-weight: 900;
 		color: $black;
 	}
 
 	&__subtitle {
-		font-size: 30rem;
+		font-size: 22rem;
 		color: $black;
 	}
 
 	&__excerpt {
-		font-size: 18rem;
+		font-size: 16rem;
 		color: $black;
 
 		& a {
@@ -68,24 +65,21 @@
 	}
 
 	&__content {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
 		margin-top: 30px;
 	}
 
 	&__intro {
-		width: 40%;
+		width: 100%;
 	}
 
 	&__demo {
-		width: 57%;
-		transform: translateX(6%);
+		width: 100%;
+		margin-top: 40px;
 	}
 
 	&__cta {
 		margin-top: 44px;
-		width: 220px;
+		width: 100%;
 		text-align: center;
 
 		&__btn {
@@ -112,6 +106,78 @@
 			display: block;
 			font-size: 14rem;
 			margin-top: 10px;
+		}
+	}
+}
+
+@media screen and (min-width: 500px) {
+	.main {
+		&::before {
+			z-index: 1;
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 55%;
+			height: 100%;
+			background-image: url('../assets/popcorn.png');
+			background-position: left bottom;
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+
+		&::after {
+			width: 45%;
+		}
+
+		&__title,
+		&__subtitle {
+			text-align: left;
+		}
+
+		&__title {
+			font-size: 50rem;
+		}
+
+		&__subtitle {
+			font-size: 24rem;
+		}
+
+		&__excerpt {
+			font-size: 18rem;
+		}
+
+		&__cta {
+			width: 220px;
+		}
+	}
+}
+
+@media screen and (min-width: 1030px) {
+	.main {
+		padding: 10px 0px;
+
+		&__title {
+			font-size: 56rem;
+		}
+
+		&__subtitle {
+			font-size: 30rem;
+		}
+
+		&__content {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		&__intro {
+			width: 40%;
+		}
+
+		&__demo {
+			width: 57%;
+			transform: translateX(6%);
+			margin-top: 0px;
 		}
 	}
 }
