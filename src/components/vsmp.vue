@@ -18,7 +18,7 @@
 import json from '../../public/static/data';
 
 function updateJson() {
-	return fetch('/.netlify/functions/json-update', {
+	return fetch('/functions/json-update', {
 		method: 'POST',
 	}).then((response) => {
 		return response.json();
