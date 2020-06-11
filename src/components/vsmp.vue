@@ -16,7 +16,6 @@
 
 <script>
 import json from '../assets/data';
-//import editJsonFile from 'edit-json-file';
 
 function updateJson() {
 	return fetch('/.netlify/functions/json-update', {
@@ -68,14 +67,14 @@ export default {
 	mounted() {
 		console.log(json);
 
-		updateJson();
-
-		/*let file = editJsonFile('../assets/data.json', {
-			autosave: true,
-		});
-		console.log(file.get());
-		file.set('test', 20);
-		console.log(file.get());*/
+		updateJson()
+			.then((response) => {
+				console.log('API response', response);
+				// set app state
+			})
+			.catch((error) => {
+				console.log('API error', error);
+			});
 
 		let self = this;
 		if (this.timeDiff >= this.nbrImg) {
