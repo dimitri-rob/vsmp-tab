@@ -45,13 +45,13 @@
 		position: absolute;
 		right: 11%;
 		bottom: -20px;
-		width: 180px;
-		height: 75px;
+		width: 140px;
+		height: 60px;
 		background: #000;
 		color: #fff;
 		font-family: 'Roboto', Helvetica, Arial, sans-serif;
 		font-weight: 900;
-		font-size: 56rem;
+		font-size: 44rem;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -63,6 +63,16 @@
 			& + span {
 				margin-left: 10px;
 			}
+		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.demo {
+		&__clock {
+			width: 180px;
+			height: 75px;
+			font-size: 56rem;
 		}
 	}
 }
