@@ -1,4 +1,5 @@
-import editJsonFile from 'edit-json-file';
+//import editJsonFile from 'edit-json-file';
+const fs = require('fs');
 
 /*
 	let file = editJsonFile('/public/static/data.json');
