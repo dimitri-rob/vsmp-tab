@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "edit-json-file": "^1.4.0",
     "faunadb": "^2.14.2",
     "minireset.css": "0.0.6",
     "vue": "^2.6.11",
