@@ -1,3 +1,4 @@
+const path = require('path');
 const editJsonFile = require('edit-json-file');
 
 exports.handler = function(event, context, callback) {
