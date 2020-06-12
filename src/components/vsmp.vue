@@ -1,11 +1,10 @@
 <template>
 	<div>
-		<div>{{ timestamp }}</div>
-		<div>{{ currentTime }}</div>
-		<div>{{ timeDiff }}</div>
-		<div>{{ imgName }}</div>
-		<div>{{ timer }}</div>
-		<div></div>
+		<div>init : {{ timestamp }}</div>
+		<div>current : {{ currentTime }}</div>
+		<div>diff : {{ timeDiff }}</div>
+		<div>nbr img : {{ nbrImg }}</div>
+		<div :data-timer="timer"></div>
 		<img
 			:src="'/static/frames/frame_' + imgName + '.png'"
 			alt
@@ -15,28 +14,53 @@
 </template>
 
 <script>
-import json from '../../public/static/data.json';
+import faunadb from 'faunadb';
 
-function updateJson() {
-	return fetch('/.netlify/functions/json-update').then((response) => {
-		return response;
-	});
-}
+const q = faunadb.query;
+const client = new faunadb.Client({
+	secret: 'fnADuI1jvQACBzn4-TDv2iz7trWwHDXY3STt2FwQ',
+});
 
 export default {
 	data() {
 		return {
-			jsonFile: json,
-			timestamp: json.timestamp,
+			timestamp: 0,
 			currentTime: 0,
 			timeDiff: 0,
 			imgName: '',
-			nbrImg: json.nbrImg,
+			nbrImg: 0,
 			timeInterval: '',
 			timer: 0,
+			ready: false,
 		};
 	},
 	methods: {
+		getJson: function() {
+			let getJson = client.query(
+				q.Get(q.Documents(q.Collection('data')))
+			);
+			getJson.then((response) => {
+				console.log('get json : ', response.data);
+				this.timestamp = response.data.timestamp;
+				this.nbrImg = response.data.nbrImg;
+				this.getFrame();
+				this.ready = true;
+			});
+		},
+		updateJson: function() {
+			let updateJson = client.query(
+				q.Update(q.Ref(q.Collection('data'), '268038425664291335'), {
+					data: {
+						timestamp: this.currentTime,
+					},
+				})
+			);
+
+			updateJson.then((response) => {
+				console.log('update json : ', response.data);
+				this.timestamp = this.currentTime;
+			});
+		},
 		getFrame: function() {
 			this.currentTime = Math.floor(Date.now() / 1000);
 			this.timeDiff = Math.round(
@@ -55,37 +79,23 @@ export default {
 		},
 	},
 	beforeMount() {
-		if (this.timestamp === undefined) {
-			this.$router.push('1591830756');
-			this.getFrame();
-		} else {
-			this.getFrame();
-		}
+		this.getJson();
 	},
 	mounted() {
-		json.test = 20;
-		console.log(json);
-
-		updateJson()
-			.then((response) => {
-				console.log('API response', response);
-				// set app state
-			})
-			.catch((error) => {
-				console.log('API error', error);
-			});
-
 		let self = this;
-		if (this.timeDiff >= this.nbrImg) {
-			this.$router.push(this.currentTime);
-		} else {
-			this.timeInterval = setInterval(function() {
-				self.timer++;
-			}, 1000);
-		}
+		this.timeInterval = setInterval(function() {
+			self.timer++;
+			self.getFrame();
+		}, 1000);
 	},
 	updated() {
-		this.getFrame();
+		if (this.ready === true) {
+			console.log('test');
+
+			if (this.timeDiff >= this.nbrImg) {
+				this.updateJson();
+			}
+		}
 	},
 };
 </script>
