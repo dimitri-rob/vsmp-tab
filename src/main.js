@@ -5,6 +5,7 @@ import MiniResetCss from 'minireset.css';
 
 import main from './components/main';
 import vsmp from './components/vsmp';
+import process from './components/process';
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -22,6 +23,11 @@ const router = new VueRouter({
 			path: '/app/',
 			components: { default: vsmp },
 			name: 'app',
+		},
+		{
+			path: '/process/',
+			components: { default: process },
+			name: 'process',
 		},
 		{
 			path: '*',
