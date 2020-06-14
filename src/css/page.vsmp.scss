@@ -1,0 +1,38 @@
+.vsmp {
+	position: relative;
+
+	&__frame {
+		width: 100%;
+		height: 100vh;
+
+		&__img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+		}
+	}
+
+	&__infos {
+		position: absolute;
+		bottom: 0px;
+		left: 0px;
+		color: #fff;
+		font-size: 12rem;
+		padding: 10px;
+		box-sizing: border-box;
+
+		& strong {
+			font-weight: 900;
+		}
+	}
+
+	&__dev {
+		position: absolute;
+		bottom: 10px;
+		right: 10px;
+		background: #fff;
+		font-size: 14rem;
+	}
+}
