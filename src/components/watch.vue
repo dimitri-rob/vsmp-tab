@@ -18,13 +18,14 @@
 			<div>diff : {{ timeDiff }}</div>
 			<div>img count : {{ imgCount }}</div>
 			<div>nbr img : {{ nbrImg }}</div>
-			<div :data-timer="timer"></div>
+			<div>timer : {{ timer }}</div>
 		</div>
 	</section>
 </template>
 
 <script>
 import faunadb from "faunadb";
+import movieList from "../assets/movie.json";
 
 const q = faunadb.query;
 const client = new faunadb.Client({
@@ -34,19 +35,12 @@ const client = new faunadb.Client({
 export default {
 	data() {
 		return {
-			dev: false,
-			movie: [
-				{
-					name: "Ford vs Ferrari",
-					slug: "ford-vs-ferrari",
-					img: 9155,
-					director: "James Mangold"
-				}
-			],
+			dev: true,
 			timestamp: 0,
 			currentTime: 0,
 			timeDiff: 0,
 			imgCount: 0,
+			framePerSec: 3600,
 			currentMovie: "",
 			currentMovieSlug: "",
 			currentMovieDirector: "",
@@ -64,26 +58,25 @@ export default {
 			getJson.then(response => {
 				console.log("get json : ", response.data);
 				this.timestamp = response.data.timestamp;
-				this.nbrImg = this.movie[response.data.id].img;
-				this.currentMovie = this.movie[response.data.id].name;
-				this.currentMovieSlug = this.movie[response.data.id].slug;
-				this.currentMovieDirector = this.movie[
-					response.data.id
-				].director;
+				this.nbrImg = movieList[response.data.id].img;
+				this.currentMovie = movieList[response.data.id].name;
+				this.currentMovieSlug = movieList[response.data.id].slug;
+				this.currentMovieDirector =
+					movieList[response.data.id].director;
 				this.getFrame();
 				this.ready = true;
 			});
 		},
 		changeMovie: function() {
 			let newMovie = Math.floor(
-				Math.random() * Math.floor(this.movie.length)
+				Math.random() * Math.floor(movieList.length)
 			);
 
 			this.timestamp = this.currentTime;
-			this.currentMovie = this.movie[newMovie].name;
-			this.currentMovieSlug = this.movie[newMovie].slug;
-			this.nbrImg = this.movie[newMovie].img;
-			this.currentMovieDirector = this.movie[newMovie].director;
+			this.currentMovie = movieList[newMovie].name;
+			this.currentMovieSlug = movieList[newMovie].slug;
+			this.nbrImg = movieList[newMovie].img;
+			this.currentMovieDirector = movieList[newMovie].director;
 
 			let updateJson = client.query(
 				q.Update(q.Ref(q.Collection("data"), "268038425664291335"), {
@@ -99,9 +92,9 @@ export default {
 			});
 		},
 		getFrame: function() {
-			this.currentTime = Math.floor(Date.now() / 10);
+			this.currentTime = Math.floor(Date.now() / 1000);
 			this.timeDiff = Math.round(
-				(this.currentTime - this.timestamp) / 100
+				(this.currentTime - this.timestamp) / this.framePerSec
 			);
 			this.imgCount = this.timeDiff + 1;
 		}
