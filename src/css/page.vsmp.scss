@@ -17,7 +17,7 @@
 	&__infos {
 		position: absolute;
 		bottom: 0px;
-		left: 0px;
+		right: 0px;
 		color: #fff;
 		font-size: 12rem;
 		padding: 10px;
@@ -30,7 +30,7 @@
 
 	&__dev {
 		position: absolute;
-		bottom: 10px;
+		top: 10px;
 		right: 10px;
 		background: #fff;
 		font-size: 14rem;
