@@ -47,7 +47,7 @@ export default {
 			if (self.count === 24) {
 				self.count = 0;
 			}
-		}, 1000);
+		}, 1500);
 	}
 };
 </script>
