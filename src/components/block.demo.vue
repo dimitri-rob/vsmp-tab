@@ -9,7 +9,7 @@
 					alt
 				/>
 
-				<figure class="demo__browser__img">
+				<figure class="demo__browser__frame">
 					<img :src="'/static/home/home_' + count + '.jpg'" alt />
 				</figure>
 			</div>
