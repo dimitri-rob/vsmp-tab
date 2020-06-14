@@ -4,6 +4,7 @@
 			<img
 				class="vsmp__frame__img"
 				:src="'http://frames.dimic.eu/'+ currentMovieSlug +'/frame-'+ imgCount +'.jpg'"
+				rel="preload"
 			/>
 		</figure>
 		<section class="vsmp__infos">
