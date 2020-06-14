@@ -35,7 +35,7 @@ const client = new faunadb.Client({
 export default {
 	data() {
 		return {
-			dev: true,
+			dev: false,
 			timestamp: 0,
 			currentTime: 0,
 			timeDiff: 0,
