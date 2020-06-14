@@ -1,15 +1,19 @@
 <template>
 	<div class="demo">
 		<div class="demo__content">
-			<div class="demo__browser">
-				<img
-					class="demo__browser__bar"
-					src="../assets/browser.png"
-					srcset="../assets/browser@2x.png 2x"
-					alt
-				/>
+			<div class="browser">
+				<div class="browser__head">
+					<div class="browser__head__btn">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+					<div class="browser__head__url">
+						https://vsmp-tab.netlify.app/player
+					</div>
+				</div>
 
-				<figure class="demo__browser__frame">
+				<figure class="browser__frame">
 					<img :src="'/static/home/home_' + count + '.jpg'" alt />
 				</figure>
 			</div>
@@ -26,8 +30,8 @@
 export default {
 	data() {
 		return {
-			hour: "09",
-			count: 9
+			hour: '09',
+			count: 9,
 		};
 	},
 	mounted() {
@@ -39,7 +43,7 @@ export default {
 			let hour = self.count.toString();
 
 			if (hour.length === 1) {
-				self.hour = "0" + hour;
+				self.hour = '0' + hour;
 			} else {
 				self.hour = hour;
 			}
@@ -48,10 +52,10 @@ export default {
 				self.count = 0;
 			}
 		}, 1500);
-	}
+	},
 };
 </script>
 
 <style lang="scss">
-@import "../css/block.demo";
+@import '../css/block.demo';
 </style>
