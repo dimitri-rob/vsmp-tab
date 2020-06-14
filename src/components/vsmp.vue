@@ -3,7 +3,7 @@
 		<figure class="vsmp__frame">
 			<img
 				class="vsmp__frame__img"
-				:src="'http://frames.dimic.eu/'+ currentMovieId +'/frame-'+ imgCount +'.jpg'"
+				:src="'http://frames.dimic.eu/'+ currentMovieSlug +'/frame-'+ imgCount +'.jpg'"
 			/>
 		</figure>
 		<section class="vsmp__infos">
@@ -37,7 +37,7 @@ export default {
 			movie: [
 				{
 					name: "Ford vs Ferrari",
-					id: "ford-vs-ferrari",
+					slug: "ford-vs-ferrari",
 					img: 9155,
 					director: "James Mangold"
 				}
@@ -47,7 +47,7 @@ export default {
 			timeDiff: 0,
 			imgCount: 0,
 			currentMovie: "",
-			currentMovieId: "",
+			currentMovieSlug: "",
 			currentMovieDirector: "",
 			nbrImg: 0,
 			timeInterval: "",
@@ -63,10 +63,12 @@ export default {
 			getJson.then(response => {
 				console.log("get json : ", response.data);
 				this.timestamp = response.data.timestamp;
-				this.nbrImg = response.data.nbrImg;
-				this.currentMovie = response.data.movie;
-				this.currentMovieId = response.data.movieid;
-				this.currentMovieDirector = response.data.director;
+				this.nbrImg = this.movie[response.data.id].img;
+				this.currentMovie = this.movie[response.data.id].name;
+				this.currentMovieSlug = this.movie[response.data.id].slug;
+				this.currentMovieDirector = this.movie[
+					response.data.id
+				].director;
 				this.getFrame();
 				this.ready = true;
 			});
@@ -78,7 +80,7 @@ export default {
 
 			this.timestamp = this.currentTime;
 			this.currentMovie = this.movie[newMovie].name;
-			this.currentMovieId = this.movie[newMovie].id;
+			this.currentMovieSlug = this.movie[newMovie].slug;
 			this.nbrImg = this.movie[newMovie].img;
 			this.currentMovieDirector = this.movie[newMovie].director;
 
@@ -86,10 +88,7 @@ export default {
 				q.Update(q.Ref(q.Collection("data"), "268038425664291335"), {
 					data: {
 						timestamp: this.currentTime,
-						movie: this.movie[newMovie].name,
-						movieid: this.movie[newMovie].id,
-						nbrImg: this.movie[newMovie].img,
-						director: this.movie[newMovie].director
+						id: newMovie
 					}
 				})
 			);
