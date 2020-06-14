@@ -1,17 +1,17 @@
 <template>
-	<div class="main">
-		<section class="main__wrap">
-			<header class="main__head">
-				<h1 class="main__title">VSMP TAB</h1>
-				<h2 class="main__subtitle">
+	<div class="home">
+		<section class="home__wrap">
+			<header class="home__head">
+				<h1 class="home__title">VSMP TAB</h1>
+				<h2 class="home__subtitle">
 					a movie played very slooooooooooooooowly
 					<br />in your browser tab
 				</h2>
 			</header>
 
-			<main class="main__content">
-				<div class="main__intro">
-					<div class="main__excerpt">
+			<main class="home__content">
+				<div class="home__intro">
+					<div class="home__excerpt">
 						Based on
 						<a
 							href="https://medium.com/s/story/very-slow-movie-player-499f76c48b62"
@@ -21,15 +21,15 @@
 						safe for work.
 					</div>
 
-					<div class="main__cta">
+					<div class="home__cta">
 						<div>
-							<router-link :to="{ name: 'app' }" class="main__cta__btn">watch movie</router-link>
-							<span class="main__cta__txt">and add it as start page</span>
+							<router-link :to="{ name: 'Watch' }" class="home__cta__btn">watch movie</router-link>
+							<span class="home__cta__txt">and add it as start page</span>
 						</div>
 					</div>
 				</div>
 
-				<div class="main__demo">
+				<div class="home__demo">
 					<Demo></Demo>
 				</div>
 			</main>
@@ -48,5 +48,5 @@ export default {
 <style lang="scss">
 @import "../css/_variables";
 @import "../css/_fonts";
-@import "../css/page.main";
+@import "../css/page.home";
 </style>

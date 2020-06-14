@@ -1,18 +1,18 @@
 <template>
-	<section class="vsmp">
-		<figure class="vsmp__frame">
+	<section class="watch">
+		<figure class="watch__frame">
 			<img
-				class="vsmp__frame__img"
+				class="watch__frame__img"
 				:src="'http://frames.dimic.eu/'+ currentMovieSlug +'/frame-'+ imgCount +'.jpg'"
 				rel="preload"
 			/>
 		</figure>
-		<section class="vsmp__infos">
+		<section class="watch__infos">
 			<strong>{{ currentMovie }}</strong>
 			by
 			<em>{{ currentMovieDirector }}</em>
 		</section>
-		<div v-if="dev" class="vsmp__dev">
+		<div v-if="dev" class="watch__dev">
 			<div>init : {{ timestamp }}</div>
 			<div>current : {{ currentTime }}</div>
 			<div>diff : {{ timeDiff }}</div>
@@ -128,5 +128,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../css/page.vsmp";
+@import "../css/page.watch";
 </style>

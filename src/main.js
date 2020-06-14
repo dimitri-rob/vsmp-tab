@@ -3,9 +3,8 @@ import App from './App.vue';
 import VueRouter from 'vue-router';
 import MiniResetCss from 'minireset.css';
 
-import main from './components/main';
-import vsmp from './components/vsmp';
-import process from './components/process';
+import home from './components/home';
+import watch from './components/watch';
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -16,18 +15,13 @@ const router = new VueRouter({
 	routes: [
 		{
 			path: '/',
-			components: { default: main },
-			name: 'Main',
+			components: { default: home },
+			name: 'Home',
 		},
 		{
-			path: '/app/',
-			components: { default: vsmp },
-			name: 'app',
-		},
-		{
-			path: '/process/',
-			components: { default: process },
-			name: 'process',
+			path: '/watch/',
+			components: { default: watch },
+			name: 'Watch',
 		},
 		{
 			path: '*',

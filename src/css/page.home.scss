@@ -1,6 +1,6 @@
 @import './_fonts';
 
-.main {
+.home {
 	width: 100%;
 	min-height: 100vh;
 	background: $grey;
@@ -112,7 +112,7 @@
 }
 
 @media screen and (min-width: 500px) {
-	.main {
+	.home {
 		&::before {
 			z-index: 1;
 			position: fixed;
@@ -154,7 +154,7 @@
 }
 
 @media screen and (min-width: 1030px) {
-	.main {
+	.home {
 		padding: 10px 0px;
 
 		&__title {
