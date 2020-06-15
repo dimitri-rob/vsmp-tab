@@ -95,8 +95,9 @@ body {
 		margin-top: 44px;
 		width: 100%;
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
 
 		&__btn {
 			cursor: pointer;
@@ -112,7 +113,6 @@ body {
 			border-radius: 54px;
 			font-size: 24rem;
 			transition: background 0.1s ease-out, color 0.1s ease-out;
-			margin-right: 14px;
 
 			&:hover {
 				background: $yellow;
@@ -126,6 +126,11 @@ body {
 			font-size: 14rem;
 			width: 100%;
 			text-align: center;
+			margin-top: 14px;
+
+			& br {
+				display: none;
+			}
 
 			& a {
 				color: $black;
@@ -174,6 +179,20 @@ body {
 		&__excerpt {
 			font-size: 18rem;
 		}
+
+		&__cta {
+			justify-content: flex-start;
+			flex-wrap: nowrap;
+
+			&__btn {
+				margin-right: 14px;
+			}
+
+			&__txt {
+				margin-top: 0px;
+				text-align: left;
+			}
+		}
 	}
 }
 
@@ -203,6 +222,18 @@ body {
 			width: 57%;
 			transform: translateX(6%);
 			margin-top: 0px;
+		}
+
+		&__cta {
+			justify-content: space-between;
+
+			&__txt {
+				text-align: center;
+
+				& br {
+					display: block;
+				}
+			}
 		}
 	}
 }
