@@ -8,13 +8,20 @@ body {
 	&__frame {
 		width: 100%;
 		height: 100vh;
+		background: #000 url(../assets/loading.png) no-repeat center;
+		background-size: 48px 48px;
 
 		&__img {
 			display: block;
 			width: 100%;
 			height: 100%;
+			opacity: 0;
 			object-fit: cover;
 			object-position: center;
+			animation-name: fadeIn;
+			animation-duration: 0.5s;
+			animation-fill-mode: both;
+			animation-timing-function: ease-in-out;
 		}
 	}
 
@@ -47,5 +54,14 @@ body {
 		width: 200px;
 		padding: 5px 10px;
 		box-sizing: border-box;
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
 	}
 }

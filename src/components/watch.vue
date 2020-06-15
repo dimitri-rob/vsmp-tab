@@ -2,6 +2,7 @@
 	<section class="watch">
 		<figure class="watch__frame">
 			<img
+				v-if="infosReady"
 				class="watch__frame__img"
 				:src="'http://frames.dimic.eu/'+ currentMovieSlug +'/frame-'+ imgCount +'.jpg'"
 				rel="preload"
@@ -48,7 +49,8 @@ export default {
 			nbrImg: 0,
 			timeInterval: "",
 			timer: 0,
-			ready: false
+			ready: false,
+			infosReady: false
 		};
 	},
 	methods: {
@@ -66,6 +68,7 @@ export default {
 					movieList[response.data.id].director;
 				this.getFrame();
 				this.ready = true;
+				this.infosReady = true;
 			});
 		},
 		changeMovie: function() {
