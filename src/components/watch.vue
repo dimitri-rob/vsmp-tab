@@ -7,7 +7,8 @@
 				rel="preload"
 			/>
 		</figure>
-		<section class="watch__infos">
+		<section class="watch__infos watch__infos--frames">{{ imgCount }} / {{ nbrImg }} frames</section>
+		<section class="watch__infos watch__infos--movie">
 			<strong>{{ currentMovie }}</strong>
 			by
 			<em>{{ currentMovieDirector }}</em>

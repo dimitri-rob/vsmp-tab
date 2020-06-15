@@ -20,12 +20,18 @@ body {
 
 	&__infos {
 		position: absolute;
-		bottom: 0px;
-		right: 0px;
 		color: #fff;
 		font-size: 12rem;
 		padding: 10px;
 		box-sizing: border-box;
+		right: 0px;
+
+		&--frames {
+			top: 0px;
+		}
+		&--movie {
+			bottom: 0px;
+		}
 
 		& strong {
 			font-weight: 900;
