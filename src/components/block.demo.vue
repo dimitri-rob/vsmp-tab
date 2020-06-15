@@ -12,14 +12,14 @@
 				</div>
 
 				<figure class="browser__frame">
-					<img :src="'/static/home/home_' + count + '.jpg'" alt />
+					<img :src="'/static/home/home_' + countH + '.jpg'" alt />
 				</figure>
 			</div>
 
-			<div class="clock" :data-count="count">
-				<span>{{ hour }}</span>
+			<div class="clock">
+				<span>{{ timeH }}</span>
 				<span>:</span>
-				<span>00</span>
+				<span>{{ timeS }}</span>
 			</div>
 		</div>
 	</div>
@@ -29,28 +29,44 @@
 export default {
 	data() {
 		return {
-			hour: "09",
-			count: 9
+			countH: 9,
+			countS: 0,
+			timeH: "09",
+			timeS: "00"
 		};
+	},
+	methods: {
+		timeCount: function(type, count, max) {
+			if (count === max - 1) {
+				count = 0;
+			} else {
+				count++;
+			}
+
+			let time = count.toString();
+			if (time.length === 1) {
+				time = "0" + time;
+			}
+
+			if (type === "hour") {
+				this.countH = count;
+				this.timeH = time;
+			} else if (type === "seconds") {
+				this.countS = count;
+				this.timeS = time;
+			}
+		}
 	},
 	mounted() {
 		let self = this;
 
-		setInterval(() => {
-			self.count++;
-
-			let hour = self.count.toString();
-
-			if (hour.length === 1) {
-				self.hour = "0" + hour;
-			} else {
-				self.hour = hour;
-			}
-
-			if (self.count === 24) {
-				self.count = 0;
-			}
+		this.hourInterval = setInterval(() => {
+			self.timeCount("hour", this.countH, 24);
 		}, 1500);
+
+		this.secondsInterval = setInterval(() => {
+			self.timeCount("seconds", this.countS, 60);
+		}, 15);
 	}
 };
 </script>
