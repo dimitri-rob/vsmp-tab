@@ -6,31 +6,6 @@
 		width: 100%;
 		position: relative;
 	}
-
-	&__clock {
-		position: absolute;
-		right: 10px;
-		bottom: 10px;
-		width: 86px;
-		height: 34px;
-		background: #000;
-		color: #fff;
-		font-family: 'Roboto', Helvetica, Arial, sans-serif;
-		font-size: 26rem;
-		font-weight: 900;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		border-radius: 5px;
-		box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
-		z-index: 15;
-
-		& span {
-			& + span {
-				margin-left: 8px;
-			}
-		}
-	}
 }
 
 .browser {
@@ -105,6 +80,31 @@
 			height: 100%;
 			object-fit: cover;
 			object-position: center;
+		}
+	}
+}
+
+.clock {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	width: 86px;
+	height: 34px;
+	background: #000;
+	color: #fff;
+	font-family: 'Roboto', Helvetica, Arial, sans-serif;
+	font-size: 26rem;
+	font-weight: 900;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
+	z-index: 15;
+
+	& span {
+		& + span {
+			margin-left: 2px;
 		}
 	}
 }

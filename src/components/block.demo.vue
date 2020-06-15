@@ -8,9 +8,7 @@
 						<span></span>
 						<span></span>
 					</div>
-					<div class="browser__head__url">
-						https://vsmp-tab.netlify.app/player
-					</div>
+					<div class="browser__head__url">https://vsmp-tab.netlify.app/player</div>
 				</div>
 
 				<figure class="browser__frame">
@@ -18,8 +16,9 @@
 				</figure>
 			</div>
 
-			<div class="demo__clock" :data-count="count">
+			<div class="clock" :data-count="count">
 				<span>{{ hour }}</span>
+				<span>:</span>
 				<span>00</span>
 			</div>
 		</div>
@@ -30,8 +29,8 @@
 export default {
 	data() {
 		return {
-			hour: '09',
-			count: 9,
+			hour: "09",
+			count: 9
 		};
 	},
 	mounted() {
@@ -43,7 +42,7 @@ export default {
 			let hour = self.count.toString();
 
 			if (hour.length === 1) {
-				self.hour = '0' + hour;
+				self.hour = "0" + hour;
 			} else {
 				self.hour = hour;
 			}
@@ -52,10 +51,10 @@ export default {
 				self.count = 0;
 			}
 		}, 1500);
-	},
+	}
 };
 </script>
 
 <style lang="scss">
-@import '../css/block.demo';
+@import "../css/block.demo";
 </style>
