@@ -18,7 +18,7 @@
 						</p>
 						<p>
 							Use the
-							<a href="https://addons.mozilla.org/addon/vsmp-tab/" target="_blank">Firefox plugin</a> and display current frame each time you
+							<a href="https://addons.mozilla.org/addon/vsmp-tab/" target="_blank">Firefox add-on</a> and display current frame each time you
 							open a new window or tab. It is safe
 							for work.
 						</p>
@@ -38,7 +38,7 @@
 						<span class="home__cta__txt">
 							<a href="https://addons.mozilla.org/addon/vsmp-tab/" target="_blank">
 								or use
-								<br />Firefox plugin
+								<br />Firefox add-on
 							</a>
 						</span>
 					</div>
