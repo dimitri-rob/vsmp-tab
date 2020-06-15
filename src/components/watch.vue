@@ -34,7 +34,7 @@ import movieList from "../assets/movie.json";
 
 const q = faunadb.query;
 const client = new faunadb.Client({
-	secret: "fnADuI1jvQACBzn4-TDv2iz7trWwHDXY3STt2FwQ"
+	secret: "fnADua6zeNACBWQ_Yuz-7kSfXjWE-lwpxBEEcVcH"
 });
 
 export default {
