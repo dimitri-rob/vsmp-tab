@@ -35,8 +35,11 @@ body {
 	&__dev {
 		position: absolute;
 		top: 10px;
-		right: 10px;
+		left: 10px;
 		background: #fff;
 		font-size: 14rem;
+		width: 200px;
+		padding: 5px 10px;
+		box-sizing: border-box;
 	}
 }

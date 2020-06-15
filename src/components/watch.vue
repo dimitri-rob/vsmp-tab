@@ -93,7 +93,8 @@ export default {
 		},
 		getFrame: function() {
 			this.currentTime = Math.floor(Date.now() / 1000);
-			this.timeDiff = Math.round(
+
+			this.timeDiff = Math.floor(
 				(this.currentTime - this.timestamp) / this.framePerSec
 			);
 			this.imgCount = this.timeDiff + 1;
