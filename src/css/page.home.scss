@@ -58,6 +58,12 @@ body {
 		font-size: 16rem;
 		color: $black;
 
+		& p {
+			& + p {
+				margin-top: 10px;
+			}
+		}
+
 		& a {
 			color: $black;
 			text-decoration: underline;
@@ -65,6 +71,10 @@ body {
 			&:hover {
 				text-decoration: none;
 			}
+		}
+
+		& small {
+			font-size: 12rem;
 		}
 	}
 
@@ -84,7 +94,9 @@ body {
 	&__cta {
 		margin-top: 44px;
 		width: 100%;
-		text-align: center;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 
 		&__btn {
 			cursor: pointer;
@@ -94,11 +106,13 @@ body {
 			display: inline-flex;
 			justify-content: center;
 			align-items: center;
-			width: 100%;
+			flex-shrink: 0;
+			width: 220px;
 			height: 54px;
 			border-radius: 54px;
 			font-size: 24rem;
 			transition: background 0.1s ease-out, color 0.1s ease-out;
+			margin-right: 14px;
 
 			&:hover {
 				background: $yellow;
@@ -110,7 +124,17 @@ body {
 		&__txt {
 			display: block;
 			font-size: 14rem;
-			margin-top: 10px;
+			width: 100%;
+			text-align: center;
+
+			& a {
+				color: $black;
+				text-decoration: underline;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
 		}
 	}
 }
@@ -149,10 +173,6 @@ body {
 
 		&__excerpt {
 			font-size: 18rem;
-		}
-
-		&__cta {
-			width: 220px;
 		}
 	}
 }
